@@ -7,17 +7,25 @@ const eventSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    text: {
+    title: {
       type: String,
-      required: [true, "Please add a text value"],
+      required: [true, "Please add a title value"],
     },
-    description: {
+    category: {
       type: String,
-      required: [true, "Please add a description"],
+      required: [true, "Please add a category value"],
     },
-    price: {
-      type: String, // NUMBER??
-      required: [true, "Please add a price Eur"],
+    place: {
+      type: String,
+      required: [true, "Please add a place"],
+    },
+    time: {
+      type: String,
+      required: [true, "Please add an event time"],
+    },
+    photo: {
+      type: String,
+      required: [true, "Please add a photo URL"],
     },
   },
   {

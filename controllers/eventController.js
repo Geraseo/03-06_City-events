@@ -16,15 +16,23 @@ const getEvents = asyncHandler(async (req, res) => {
 // @route POST /api/events
 // @access PRIVATE
 const setEvent = asyncHandler(async (req, res) => {
-  if (!req.body.text || !req.body.description || !req.body.price) {
+  if (
+    !req.body.title ||
+    !req.body.category ||
+    !req.body.place ||
+    !req.body.time ||
+    !req.body.photo
+  ) {
     res.status(400);
     // klases pagrindu kuriamas naujas objektas
     throw new Error("Please add a required fields");
   }
   const event = await Event.create({
-    text: req.body.text,
-    description: req.body.description,
-    price: req.body.price,
+    title: req.body.title,
+    category: req.body.category,
+    place: req.body.place,
+    time: req.body.time,
+    photo: req.body.photo,
     user: req.user.id,
   });
   res.status(200).json(event);

@@ -7,6 +7,8 @@ This page has public and private areas:
 - public area is seen for everybody
 - private area is seen only for authorized users
 
+<!-- ============================================================= -->
+
 ## Roles
 
 There are two types of authorized users of this page:
@@ -32,6 +34,8 @@ In the "backend" directory open new terminal and run
 npm i
 npx nodemon
 ```
+
+<!-- ============================================================= -->
 
 ## Test application end-points
 
@@ -63,6 +67,8 @@ npx nodemon
 ```
 
 - **Token**: after response, take "token" for further testing purposes and use it in Headers
+
+<!-- ============================================================= -->
 
 ### Login user
 
@@ -96,16 +102,88 @@ value: Bearer <token>
 }
 ```
 
+<!-- ============================================================= -->
+
 ### Post event
 
 - **Method**: POST
-- **End-point**: http://localhost:5000/api/users/
+- **End-point**: http://localhost:5000/api/events/
 - **Headers**:
-  key: authorization
-  value: Bearer <token>
-- **Messsage in body**:
-  {
-  "email": "jonas@gmail.com",
-  "password": "jonas"
-  }
-- **Response**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Messsage in body e.g.**:
+
+```
+{
+    "title": "Scorpions",
+    "category": "concert",
+    "place": "Žalgiris arena",
+    "time": "2023-06-19",
+    "photo": "https://i.ytimg.com/vi/syNDdIfKbkw/maxresdefault.jpg"
+}
+```
+
+- **Response e.g.**:
+
+```
+{
+    "user": "6403943e135ad0adaf4fb9cd",
+    "title": "Scorpions",
+    "category": "concert",
+    "place": "Žalgiris arena",
+    "time": "2023-06-19",
+    "photo": "https://i.ytimg.com/vi/syNDdIfKbkw/maxresdefault.jpg",
+    "_id": "64039e2acd33c9d4d5866aef",
+    "createdAt": "2023-03-04T19:38:18.037Z",
+    "updatedAt": "2023-03-04T19:38:18.037Z",
+    "__v": 0
+}
+```
+
+<!-- ============================================================= -->
+
+### Get all logged in user's events
+
+- **Method**: GET
+- **End-point**: http://localhost:5000/api/events/
+- **Headers**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Response e.g.**:
+
+```
+[
+    {
+        "_id": "64039e2acd33c9d4d5866aef",
+        "user": "6403943e135ad0adaf4fb9cd",
+        "title": "Scorpions",
+        "category": "concert",
+        "place": "Žalgiris arena",
+        "time": "2023-06-19",
+        "photo": "https://i.ytimg.com/vi/syNDdIfKbkw/maxresdefault.jpg",
+        "createdAt": "2023-03-04T19:38:18.037Z",
+        "updatedAt": "2023-03-04T19:38:18.037Z",
+        "__v": 0
+    },
+    {
+        "_id": "6403a006cd33c9d4d5866af2",
+        "user": "6403943e135ad0adaf4fb9cd",
+        "title": "Photography in routine",
+        "category": "exhibition",
+        "place": "M.K.Čiurlionis gallery",
+        "time": "2023-03-25",
+        "photo": "https://cdn.londonandpartners.com/assets/attractions/culture/59919-640x360-photographers-gallery-2012-640.jpg",
+        "createdAt": "2023-03-04T19:46:14.960Z",
+        "updatedAt": "2023-03-04T19:46:14.960Z",
+        "__v": 0
+    }
+  ]
+```
