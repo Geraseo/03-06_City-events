@@ -31,7 +31,81 @@ In the "backend" directory open new terminal and run
 ```
 npm i
 npx nodemon
-
 ```
 
 ## Test application end-points
+
+### Register user
+
+- **Method**: POST
+- **End-point**: http://localhost:5000/api/users/
+- **Messsage in body e.g.**:
+
+```
+{
+"name": "Jonas",
+"email": "jonas@gmail.com",
+"password": "jonas",
+"role": "simple"
+}
+```
+
+- **Response e.g.**:
+
+```
+{
+"_id": "6403943e135ad0adaf4fb9cd",
+"name": "Jonas",
+"email": "jonas@gmail.com",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDM5NDNlMTM1YWQwYWRhZjRmYjljZCIsImlhdCI6MTY3Nzk1NjE1OCwiZXhwIjoxNjgwNTQ4MTU4fQ.d-Kz6CLM34xoaovtnFj9ivDppce_FreUd5PxACyUgIw",
+"role": "simple"
+}
+```
+
+- **Token**: after response, take "token" for further testing purposes and use it in Headers
+
+### Login user
+
+- **Method**: POST
+- **End-point**: http://localhost:5000/api/users/login
+- **Headers**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Messsage in body e.g.**:
+
+```
+{
+"email": "jonas@gmail.com",
+"password": "jonas"
+}
+```
+
+- **Response e.g.**:
+
+```
+{
+"_id": "6403943e135ad0adaf4fb9cd",
+"name": "Jonas",
+"email": "jonas@gmail.com",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDM5NDNlMTM1YWQwYWRhZjRmYjljZCIsImlhdCI6MTY3Nzk1NjQ2MSwiZXhwIjoxNjgwNTQ4NDYxfQ.esEoMWpAEaR241jJBiJ4Yp0gEi4mD0mA-viS1cVw4SI",
+"role": "simple"
+}
+```
+
+### Post event
+
+- **Method**: POST
+- **End-point**: http://localhost:5000/api/users/
+- **Headers**:
+  key: authorization
+  value: Bearer <token>
+- **Messsage in body**:
+  {
+  "email": "jonas@gmail.com",
+  "password": "jonas"
+  }
+- **Response**:
