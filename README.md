@@ -187,3 +187,60 @@ value: Bearer <token>
     }
   ]
 ```
+
+<!-- ============================================================= -->
+
+### Get specific logged in user's event
+
+- **Method**: GET
+- **End-point**: http://localhost:5000/api/events/<event id>
+- **Headers**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Response e.g.**:
+
+```
+  {
+    "_id": "64039e2acd33c9d4d5866aef",
+    "user": "6403943e135ad0adaf4fb9cd",
+    "title": "Scorpions",
+    "category": "concert",
+    "place": "Žalgiris arena",
+    "time": "2023-06-19",
+    "photo": "https://i.ytimg.com/vi/syNDdIfKbkw/maxresdefault.jpg",
+    "createdAt": "2023-03-04T19:38:18.037Z",
+    "updatedAt": "2023-03-04T19:38:18.037Z",
+    "__v": 0
+  }
+```
+
+<!-- ============================================================= -->
+
+### Get logged in user's info
+
+- **Method**: GET
+- **End-point**: http://localhost:5000/api/users/user
+- **Headers**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Response e.g.**:
+
+```
+{
+    "_id": "6403943e135ad0adaf4fb9cd",
+    "name": "Petras",
+    "email": "petras@gmail.com",
+    "role": "simple",
+    "createdAt": "2023-03-04T18:55:58.138Z",
+    "updatedAt": "2023-03-04T18:55:58.138Z",
+    "__v": 0
+}
+```
