@@ -94,7 +94,7 @@ const getUsers = asyncHandler(async (req, res) => {
     {
       // kokia role atitikti turi. jei nera sito $match, tai rodo visus userius su ju skelbimais, iskaitant ir admin
       // $match: { role: "simple" },  // tiktai admin'ui rodo tik simple role userius
-      // $match: { role: { $in: ["simple", "admin"] } }, // rodys visus userius ir simple ir admin
+      $match: { role: { $in: ["simple", "admin"] } }, // rodys visus userius ir simple ir admin
     },
     {
       // cia bus isvardinami dalykai, kuriu nereikia, kad rodytu kai pagetina userius

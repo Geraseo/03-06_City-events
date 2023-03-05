@@ -244,3 +244,119 @@ value: Bearer <token>
     "__v": 0
 }
 ```
+
+<!-- ============================================================= -->
+
+### Get all users info- AS ADMIN
+
+- **Method**: GET
+- **End-point**: http://localhost:5000/api/users/list
+- **Headers**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Response e.g.**:
+
+```
+[
+    {
+        "_id": "64038fafffafa94e8162e40e",
+        "name": "admin",
+        "email": "admin@gmail.com",
+        "role": "admin",
+        "events": []
+    },
+    {
+        "_id": "6403943e135ad0adaf4fb9cd",
+        "name": "Petras",
+        "email": "petras@gmail.com",
+        "role": "simple",
+        "events": [
+            {
+                "_id": "64039e2acd33c9d4d5866aef",
+                "user": "6403943e135ad0adaf4fb9cd",
+                "title": "Scorpions",
+                "category": "concert",
+                "place": "Žalgiris arena",
+                "time": "2023-06-19",
+                "photo": "https://i.ytimg.com/vi/syNDdIfKbkw/maxresdefault.jpg"
+            },
+            {
+                "_id": "6403a006cd33c9d4d5866af2",
+                "user": "6403943e135ad0adaf4fb9cd",
+                "title": "Photography in routine",
+                "category": "exhibition",
+                "place": "M.K.Čiurlionis gallery",
+                "time": "2023-03-25",
+                "photo": "https://cdn.londonandpartners.com/assets/attractions/culture/59919-640x360-photographers-gallery-2012-640.jpg"
+            }
+        ]
+    }
+]
+```
+
+<!-- ============================================================= -->
+
+### Get and update event
+
+- **Method**: PUT
+- **End-point**: http://localhost:5000/api/events/<event id>
+- **Headers**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Messsage in body e.g.**:
+
+```
+{
+    "title": "Photography in daily routine",
+    "category": "exhibition",
+    "place": "M.K.Čiurlionis gallery",
+    "time": "2023-03-25",
+    "photo": "https://cdn.londonandpartners.com/assets/attractions/culture/59919-640x360-photographers-gallery-2012-640.jpg"
+}
+```
+
+- **Response e.g.**:
+
+```
+{
+    "_id": "6403a006cd33c9d4d5866af2",
+    "user": "6403943e135ad0adaf4fb9cd",
+    "title": "Photography in daily routine",
+    "category": "exhibition",
+    "place": "M.K.Čiurlionis gallery",
+    "time": "2023-03-25",
+    "photo": "https://cdn.londonandpartners.com/assets/attractions/culture/59919-640x360-photographers-gallery-2012-640.jpg",
+    "createdAt": "2023-03-04T19:46:14.960Z",
+    "updatedAt": "2023-03-05T08:24:25.886Z",
+    "__v": 0
+}
+```
+
+<!-- ============================================================= -->
+
+### Get and delete event
+
+- **Method**: DELETE
+- **End-point**: http://localhost:5000/api/events/<event id>
+- **Headers**:
+
+```
+key: authorization
+value: Bearer <token>
+```
+
+- **Response e.g.**:
+
+```
+{
+    "id": "6403a006cd33c9d4d5866af2"
+}
+```

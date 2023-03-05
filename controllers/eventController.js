@@ -115,14 +115,18 @@ const deleteEvent = asyncHandler(async (req, res) => {
   }
 
   // make sure the logged in user matches the event user
-  if (event.user.toString() !== req.user.id) {
+  if (event.user.toString() !== req.user.id && req.user.role !== "admin") {
     res.status(401);
     throw new Error("User not authorized");
   }
 
-  await event.remove();
+  if (req.user.role === "admin" || event.user.toString() === req.user.id) {
+    console.log(event);
 
-  res.status(200).json({ id: req.params.id });
+    await Event.deleteOne({ _id: req.params.id });
+
+    res.status(200).json({ id: req.params.id });
+  }
 });
 
 module.exports = {
