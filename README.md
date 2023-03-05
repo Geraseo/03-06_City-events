@@ -193,7 +193,7 @@ value: Bearer <token>
 ### Get specific logged in user's event
 
 - **Method**: GET
-- **End-point**: http://localhost:5000/api/events/<event id>
+- **End-point**: http://localhost:5000/api/events/:id
 - **Headers**:
 
 ```
@@ -303,7 +303,7 @@ value: Bearer <token>
 ### Get and update event
 
 - **Method**: PUT
-- **End-point**: http://localhost:5000/api/events/<event id>
+- **End-point**: http://localhost:5000/api/events/:id
 - **Headers**:
 
 ```
@@ -345,7 +345,7 @@ value: Bearer <token>
 ### Get and delete event
 
 - **Method**: DELETE
-- **End-point**: http://localhost:5000/api/events/<event id>
+- **End-point**: http://localhost:5000/api/events/:id
 - **Headers**:
 
 ```
